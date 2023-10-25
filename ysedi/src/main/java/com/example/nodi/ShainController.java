@@ -5,10 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ShainController {
-
   @RequestMapping("/input")
   public String index(ShainForm shainForm) {
     return "index.html";
@@ -21,13 +21,9 @@ public class ShainController {
       return "index.html";
     }
 
-    // String name = "コントローラー太郎";
-    // サービス層から社員を検索
-    ShainService shainService = new ShainServiceImpl();
-    String name = shainService.findByNo(shainForm.getNumber());
+    String name = "コントローラー太郎";
     model.addAttribute("number", shainForm.getNumber());
     model.addAttribute("name", name);
     return "output.html";
   }
-
 }
