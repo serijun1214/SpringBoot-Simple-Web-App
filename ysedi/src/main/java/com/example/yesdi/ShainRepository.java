@@ -1,4 +1,4 @@
-package com.example.nodi;
+package com.example.yesdi;
 
 public interface ShainRepository {
 

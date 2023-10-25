@@ -1,14 +1,21 @@
-package com.example.nodi;
+package com.example.yesdi;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ShainController {
+
+  private final ShainService shainService;
+
+  // ShainServiceのDI
+  public ShainController(ShainService shainService) {
+    this.shainService = shainService;
+  }
+
   @RequestMapping("/input")
   public String index(ShainForm shainForm) {
     return "index.html";
@@ -21,7 +28,9 @@ public class ShainController {
       return "index.html";
     }
 
-    String name = "コントローラー太郎";
+    //String name = "コントローラー太郎";
+    // サービス層から社員を検索
+    String name = shainService.findByNo(shainForm.getNumber());
     model.addAttribute("number", shainForm.getNumber());
     model.addAttribute("name", name);
     return "output.html";

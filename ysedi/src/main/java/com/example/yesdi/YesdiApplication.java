@@ -1,13 +1,13 @@
-package com.example.nodi;
+package com.example.yesdi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NodiApplication {
+public class YesdiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NodiApplication.class, args);
+		SpringApplication.run(YesdiApplication.class, args);
 	}
 
 }
